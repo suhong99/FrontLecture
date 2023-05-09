@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            function test() {
+                alert("반응하죠/")
+            }
+        </script>
+    </head>
+    <body>
+        <form action="welcome.html" method="post">
+            <input type="text" name="id" value="1234" disabled/><br/> <!--한줄 입력 창-->
+            <input type="text" value="초기값" readonly/><br/> <!--한줄 입력 창-->
+            <input type="password" name="pwd" maxlength="10"/><br/><!--비밀번호창 *로 표시됨-->
+            남자 : <input type="radio" name="sex" checked/>, 여자 : <input type="radio" name="sex"/><br/><!--여러 개중 하나만 선택 가능-->
+            사과 : <input type="checkbox" name="fruit" />, 포도 : <input type="checkbox"name="fruit" /> 수박 : <input type="checkbox"name="fruit" /><br/>
+             <input type="submit" value="전송 버튼" /><br/>
+             <input type="reset" value="초기화"/><br/>
+             <input type="button" value="일반버튼" onclick="test()"/><br/>
+             <input type="hidden" value="여기에 전달하고자 하는 값을 넣어줍니다."/><br/>
+             <input type="file" /><br/>
+        </form>
+
+         <hr/>
+        <label for="txt">
+            <textarea id="txt" rows="7" cols="30" placeholder="입력점">기본값</textarea>
+            <!--  input과 달리 textarea는 기본 정보를 태그와 태그 사이에 준다 -->
+        </label>
+
+         <hr/>
+
+         <select>
+            <option>사과</option>
+            <option selected>배</option>
+            <option>굴</option>
+
+         </select>
+
+
+    </body>
+</html>
