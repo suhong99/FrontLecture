@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<style>
+		.title_level {
+			color:red;
+			font-size: 20px;
+			background-color: blue;
+		}
+
+		li > a {
+			font-size: 30px;
+			background-color: yellow;
+		}
+
+		a:link {
+			color :rgb(179,145,34)
+		}
+		a:visited {
+			color :rgb(0,0,0)
+		}
+
+		
+		p ~ a {
+			color : blueviolet;
+		}
+		p + a {
+			color : saddlebrown;
+		}
+
+		#s01::before{
+			content: "앞에 붙여요";
+			color : rgb(234, 6, 6);
+		}
+		#s01::after{
+			content: "zzzz요";
+		}
+
+
+	</style>
+</head>
+
+<body>
+
+  
+    <!-- header -->
+		<div>
+
+			<!-- header : header box -->
+			<div>
+				<div>
+
+					<div>
+						<h1>
+							<a href="#">
+								<span><img src="../images/top_logo_w.png" alt="KOGAS 한국가스공사"></span>
+							</a>
+						</h1>
+					</div>
+
+					<!-- header : gnb -->
+					<div>
+						<div>
+
+							<div>
+								<div>
+									<div>
+										<div>
+											<a href="#">
+												<span></span>
+												<i></i>
+											</a>
+										</div>
+										<p class="title_level">랜선 가스과학관</p>
+										<a href="#" ><i></i>자세히보기</a>
+										<a href="#" >자세히보기2</a>
+
+									</div>
+								</div>
+							</div>
+
+							<div>
+								<ul>
+									<li>
+										<div>
+											<a href="#"><span class="title_level">한국가스공사에서는?</span></a>
+										</div>
+										<div>
+											<div>
+												<ul>
+													<li>
+														<a href="#"><span>가스공사를 소개해요~</span></a>
+													</li>
+													<li>
+														<a href="#"><span>어떤 일을 하나요?</span></a>
+													</li>
+													<li>
+														<a href="#"><span>어디에 있나요?</span></a>
+													</li>
+													<li>
+														<a href="#"><span>천연가스는 어디서 나오나요?</span></a>
+													</li>
+													<li>
+														<a href="#"><span>수소는 어떻게 만들어지나요?</span></a>
+													</li>
+
+												</ul>
+											</div>
+										</div>
+									</li>
+
+								</ul>
+
+
+							</div>
+						</div>
+					</div>
+					<!--// header : gnb -->
+
+				</div>
+			</div>
+			<!--// header : header box -->
+
+			<!-- header : pu_hd_side_w -->
+			<div>
+
+				<a href="#"><i></i>
+					<span id="s01">전체메뉴 열기</span>
+				</a>
+			</div>
+			<a href="http://www.daum.net">다음</a><br/>
+
+			<!--// header : pu_hd_side_w -->
+		</div>
+		<!--// header -->
+
+
+</body>
+
+</html>
