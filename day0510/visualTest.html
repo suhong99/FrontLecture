@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            a:hover {
+                color :red;
+            }
+
+            a:active{
+                color: orange;
+            }
+
+            input[type=text]:focus {
+                color : pink;
+            }
+
+            input:disabled {
+                background-color: greenyellow;
+            }
+            input[type=checkbox]:checked+div {
+                background-color: brown;
+                color: brown;
+            }
+        </style>
+    </head>
+    <body>
+        <a href="">클릭</a>
+        <input type="text"/><br/>
+        <input type="checkbox"/><br/>
+        <div>테스트 데이터</div>
+        <input type="text" disabled/><br/>
+    </body>
+</html>
