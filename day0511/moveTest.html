@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width : 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+            animation-name: moveTest;
+            animation-duration: 10s;
+            animation-fill-mode: forwards;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes moveTest {
+            0% {
+                left : 0px;
+                top : 0px;
+                width : 125px;
+                height : 75px;
+            }
+            
+            25% {
+                top: 0px;
+                left : 700px;
+                width : 25px;
+                height : 75px;
+            }
+            50% {
+                left :0px;
+                top : 700px;
+                width : 25px;
+                height : 75px;
+            }
+            75% {
+                left : 700px;
+                top : 700px;
+            }
+            100% {
+                left : 0px;
+                top : 0px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>
