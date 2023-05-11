@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 0px;
+            height: 75px;
+            background-color: red;
+            margin: 5px 0px;
+            transition-property: width;
+            transition-duration: 3s;
+        }
+        #one {
+            transition-timing-function: ease;
+        }
+
+        #two {
+            transition-timing-function: ease-in;
+        }
+        #three {
+            transition-timing-function: ease-in-out;
+        }
+        #four {
+            transition-timing-function: ease-out;
+        }
+        #five {
+            transition-timing-function: linear;
+        }
+
+        button:hover ~div{
+                width: 300px;
+            }
+
+    </style>
+</head>
+<body>
+    <button>마우스 올려주세요</button>
+
+    <div id="one"></div>
+    <div id="two"></div>
+    <div id="three"></div>
+    <div id="four"></div>
+    <div id="five"></div>
+
+</body>
+</html>
