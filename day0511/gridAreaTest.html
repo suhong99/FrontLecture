@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .sup {
+            width: 400px;
+            height: 400px;
+            border : 1px solid black;
+            display:grid;
+            grid-template-areas: 
+            "h03 h03 h03"
+            "m01 c03 c03"
+            "f03 f03 f03";
+        }
+
+        .h03 {
+            grid-area: h03;
+            background-color: red;
+        }
+
+        .c03 {
+            grid-area: c03;
+            background-color: yellow;
+        }
+        .f03 {
+            grid-area: f03;
+            background-color: blue;
+        }
+
+        .m01 {
+            grid-area: m01;
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="sup">
+        <div class="h03">Header</div>
+        <div class="c03">Center</div>
+        <div class="f03">Footer</div>
+        <div class="m01">Menu</div>
+    </div>
+</body>
+</html>

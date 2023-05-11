@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            /* width: 100px; */
+        }
+
+        .sub {
+            background-color: red;
+        }
+
+        .sub:nth-child(2n){
+            background-color: darkgoldenrod;
+        }
+
+        .sup {
+            width: 400px;
+            height: 300px;
+            border: 1px solid black;
+            /* flex-direction: row; */
+            display: flex;
+            /* justify-content: space-evenly; */
+            align-items: flex-end
+            /* flex-wrap: nowrap; */
+        }
+        .one {
+            align-self:  center;
+        }
+        .four {
+            align-self: flex-start;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="sup">
+        <div class="sub one">111</div>
+        <div class="sub two">222</div>
+        <div class="sub three">333</div>
+        <div class="sub four">444</div>       
+    </div>
+</body>
+</html>
