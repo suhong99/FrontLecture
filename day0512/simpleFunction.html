@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function calc(one, two) {
+        alert(one + two);
+      }
+      function plus() {
+        var one = document.getElementById("one").value;
+        var two = document.getElementById("two").value;
+        calc(one * 1, two * 1);
+      }
+    </script>
+  </head>
+  <body>
+    <input type="text" id="one" />
+    <input type="text" id="two" />
+    <button onclick="plus()">인풋의 합</button>
+
+    <button onclick="calc(13,27)">계산</button>
+  </body>
+</html>

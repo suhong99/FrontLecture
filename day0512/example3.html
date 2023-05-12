@@ -1,0 +1,44 @@
+<!-- 컴퓨터와 사용자가 가위바위보 게임을 합니다.
+컴퓨터는 0 1 2 세개의 숫자 중 하나의 난수를 발생합니다.
+0부터 가위 바위 보 -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function game() {
+        // 컴퓨터가 어떤 값을 냈는지 알아보기 위한 베얄
+        const rcp = ["가위", "바위", "보"];
+        //input 창을 통해 입력한 나의 값
+        let myNum = document.getElementById("userNum").value * 1;
+        // 컴퓨터가 낸 값 추출
+        const computerNum = parseInt(Math.random() * 3);
+
+        if (myNum === 0 && computerNum === 2) {
+          alert(`컴퓨터는 ${rcp[computerNum]} 승리하셨습니다!`);
+        } else if (computerNum > myNum) {
+          alert(`컴퓨터는 ${rcp[computerNum]} 패배!`);
+        } else if (computerNum === myNum) {
+          alert(`컴퓨터는 ${rcp[computerNum]} 무승부!`);
+        } else if (computerNum === 0 && myNum === 2) {
+          alert(`컴퓨터는 ${rcp[computerNum]} 패배!`);
+        } else if (![0, 1, 2].includes(myNum)) {
+          alert(
+            `입력하신 값은 ${myNum} ` +
+              "가위는 0 , 바위는 1 , 묵은 2 입니다 0 1 2 중에서 입력해주세요"
+          );
+        } else {
+          alert(`컴퓨터는 ${rcp[computerNum]} 승리하셨습니다!`);
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <input type="number" id="userNum" />
+    <button onclick="game()">가위바위보!</button>
+  </body>
+</html>
