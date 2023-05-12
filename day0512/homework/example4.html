@@ -1,0 +1,48 @@
+<!-- 계산기 첫번쨰는 연산자 one, 두번쨰는 연산자 oper, 두번쨰 숫자를 입력하는input에는 연산자two -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>계산기 숙제</title>
+    <script>
+      function operator() {
+        let one = document.getElementById("one").value * 1;
+        let two = document.getElementById("two").value * 1;
+        let oper = document.getElementById("oper").value;
+        console.log(oper === "**");
+
+        switch (oper) {
+          case "+":
+            answer = one + two;
+            break;
+          case "-":
+            answer = one - two;
+            break;
+          case "*":
+            answer = one * two;
+            break;
+          case "/":
+            answer = one / two;
+            break;
+          case "**":
+            answer = one ** two;
+            break;
+          default:
+            alert("올바른 연산자를 입력해주세요.");
+            return;
+        }
+        alert(answer);
+      }
+    </script>
+  </head>
+  <body>
+    <input type="number" id="one" />
+    <input type="text" id="oper" />
+    <input type="number" id="two" />
+
+    <button onclick="operator()">계산기</button>
+  </body>
+</html>
