@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>계산기 숙제</title>
     <script>
-      function operator() {
+      function calc() {
         let one = document.getElementById("one").value * 1;
         let two = document.getElementById("two").value * 1;
         let oper = document.getElementById("oper").value;
@@ -28,6 +28,7 @@
             answer = one / two;
             break;
           case "**":
+          case "^":
             answer = one ** two;
             break;
           default:
@@ -43,6 +44,6 @@
     <input type="text" id="oper" />
     <input type="number" id="two" />
 
-    <button onclick="operator()">계산기</button>
+    <button onclick="calc()">계산기</button>
   </body>
 </html>
