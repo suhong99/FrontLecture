@@ -6,21 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script>
-      var test = {
-        name: "홍길동",
-        age: 18,
-        addr: "서울",
-      };
-      alert(test.name);
-      test.name = "이순신";
-      alert(test.name);
-
-      test.aaaa = "test message";
-
-      alert(test.aaaa);
-
-      delete test["aaaa"];
+      var ssn = "123456-1234567";
+      var dataList = ssn.split("-");
+      const x = dataList.reduce((acc, crr) => acc * 1 + crr * 1, 0);
+      alert(x);
     </script>
   </head>
-  <body></body>
+  <body>
+    <input type="text" id="one" placeholder="주민번호 000000-00000000" />
+  </body>
 </html>
