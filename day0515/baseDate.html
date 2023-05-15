@@ -94,30 +94,10 @@
         for (let i = 0; i < trList.length; i++) {
           const tdList = trList[i].childNodes;
           if (tdList[1].textContent == num) {
-            const numTd = document.createElement("td");
-            const numText = document.createTextNode(num);
-            const nameTd = document.createElement("td");
-            const nameText = document.createTextNode(name);
-
-            const moneyTd = document.createElement("td");
-            const moneyText = document.createTextNode(money);
-
-            const qtyTd = document.createElement("td");
-            const qtyText = document.createTextNode(qty);
-
-            nameTd.appendChild(nameText);
-            moneyTd.appendChild(moneyText);
-            qtyTd.appendChild(qtyText);
-
-            const tr = document.createElement("tr");
-            tr.appendChild(numTd);
-
-            tr.appendChild(nameTd);
-            tr.appendChild(moneyTd);
-            tr.appendChild(qtyTd);
-
-            var table = document.getElementById("list");
-            table.appendChild(tr);
+            tdList[3].textContent = name;
+            tdList[5].textContent = money;
+            tdList[7].textContent = qty;
+            break;
           }
         }
       }
