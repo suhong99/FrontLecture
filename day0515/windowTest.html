@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function clickTest() {
+        alert("alert창을 발생시킵니다.");
+      }
+      function confirmTest() {
+        var result = confirm("정말 삭제하시겠습니까?");
+        console.log(result);
+      }
+      function promptTest() {
+        var data = prompt("데이터를 입력하세요");
+        console.log(data);
+      }
+      function openTest() {
+        open("subWindowTest.html", "", "width-500, heigth-400");
+      }
+      function scrollTest() {
+        scrollBy(0, 100);
+        console.log("hi");
+      }
+    </script>
+  </head>
+  <body>
+    <button onclick="clickTest()">클릭</button>
+    <button onclick="confirmTest()">삭제</button>
+    <button onclick="promptTest()">입력</button>
+    <button onclick="openTest()">새창</button>
+    <button onclick="scrollTest()">스크롤</button><br />
+    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+    <button onclick="scrollTest()">스크롤</button><br />
+    <button onclick="scrollTest()">스크롤2</button><br />
+  </body>
+</html>

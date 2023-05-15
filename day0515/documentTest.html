@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <script>
+    // alert(document.firstChild);
+    // console.log(document.children);
+    function init() {
+      var tr = document.getElementById("b01");
+      console.log(tr);
+      var th = document.getElementsByTagName("th");
+      console.log(th);
+      var div = document.getElementsByClassName("content");
+      console.log(div);
+
+      //   var tr=document.getElementsByClassName
+    }
+
+    function changeColor(trElement) {
+      const tr = document.getElementsByTagName("tr");
+      for (let i = 0; i < tr.length; i++) {
+        tr[i].style.backgroundColor = "";
+      }
+      trElement.style.backgroundColor = "yellow";
+    }
+
+    //게시판의 게시물 중 홀수 게시물의 배경색을 변경하세요.
+  </script>
+  <body onload="init()">
+    <div class="content">
+      <table border="1">
+        <tr>
+          <th>번호</th>
+          <th>제목</th>
+          <th>작성자</th>
+          <th>조회수</th>
+        </tr>
+        <tr id="b01" onclick="changeColor(this)">
+          <th>1</th>
+          <th>자바</th>
+          <th>작자바</th>
+          <th>100</th>
+        </tr>
+        <tr id="b02" onclick="changeColor(this)">
+          <th>2</th>
+          <th>오라클</th>
+          <th>작오라클</th>
+          <th>50</th>
+        </tr>
+        <tr id="b03" onclick="changeColor(this)">
+          <th>3</th>
+          <th>자바스크립트</th>
+          <th>작자바스크립트</th>
+          <th>120</th>
+        </tr>
+        <tr id="b04" onclick="changeColor(this)">
+          <th>4</th>
+          <th>타입</th>
+          <th>작타입자</th>
+          <th>20</th>
+        </tr>
+      </table>
+    </div>
+    <button onclick="init()">클릭</button>
+  </body>
+</html>

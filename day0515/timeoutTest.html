@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      //   console.log("document Start");
+      //   var obj = setTimeout(startTime(), 3000);
+
+      //   function startTime() {
+      //     console.log("Timeout Call");
+      //   }
+      //   var count = 0;
+      //   var aaa = window.setInterval(function () {
+      //     console.log("test-" + count++);
+      //   }, 1000);
+      var time = 0;
+      var interval;
+      function timeStart() {
+        interval = setInterval(function () {
+          document.getElementById("result").value = time++;
+        }, 1000);
+      }
+      function timeEnd() {
+        clearInterval(interval);
+      }
+    </script>
+  </head>
+
+  <body>
+    <input type="text" id="result" value="0" /><br />
+    <button onclick="timeStart()">시작</button>
+    <button onclick="timeEnd()">종료</button>
+  </body>
+</html>

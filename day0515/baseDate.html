@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .shopColor {
+        color: brown;
+      }
+      .shopBack {
+        background-color: gold;
+      }
+      .notSee {
+        display: none;
+      }
+    </style>
+    <script>
+      window.onload = function () {
+        //1. 목록의 title 항목의 배경색을 변경하세요
+        var title = document.getElementsByClassName("shopColor");
+        console.log(title, "title");
+        // title[0].classList.add("shopColor");
+        // title[0].classList.remove("shopColor");
+        title[0].setAttribute("class", "shopColor shopBack");
+      };
+
+      function search() {
+        const searchPrice = document.getElementById("price").value;
+        const prices = document.getElementsByClassName("prices");
+
+        for (let i = 0; i < prices.length; i++) {
+          const price = parseInt(prices[i].textContent);
+          const tr = prices[i].parentNode;
+          price > searchPrice
+            ? (tr.style.display = "none")
+            : // : (tr.style.display = "");
+              tr.setAttribute("style", "display:''");
+        }
+        // 이항 연산자와 NaN을 비교하면 항상 false가 나옴
+      }
+
+      function insertItem() {
+        const num = document.getElementById("num").value;
+        const name = document.getElementById("name").value;
+        const money = document.getElementById("money").value;
+        const qty = document.getElementById("qty").value;
+
+        const numTd = document.createElement("td");
+        const numText = document.createTextNode(num);
+
+        const nameTd = document.createElement("td");
+        const nameText = document.createTextNode(name);
+
+        const moneyTd = document.createElement("td");
+        const moneyText = document.createTextNode(money);
+
+        const qtyTd = document.createElement("td");
+        const qtyText = document.createTextNode(qty);
+
+        numTd.appendChild(numText);
+        nameTd.appendChild(nameText);
+        moneyTd.appendChild(moneyText);
+        qtyTd.appendChild(qtyText);
+
+        const tr = document.createElement("tr");
+        tr.appendChild(numTd);
+        tr.appendChild(nameTd);
+        tr.appendChild(moneyTd);
+        tr.appendChild(qtyTd);
+
+        var table = document.getElementById("list");
+        table.appendChild(tr);
+      }
+      function deleteItem() {
+        const num = document.getElementById("num").value;
+        const trList = document.getElementsByTagName("tr");
+        for (let i = 0; i < trList.length; i++) {
+          const tdList = trList[i].childNodes;
+
+          if (tdList[1].textContent == num) {
+            trList[i].remove();
+          }
+        }
+      }
+      function updateItem() {
+        const num = document.getElementById("num").value;
+        const name = document.getElementById("name").value;
+        const money = document.getElementById("money").value;
+        const qty = document.getElementById("qty").value;
+
+        const trList = document.getElementsByTagName("tr");
+        for (let i = 0; i < trList.length; i++) {
+          const tdList = trList[i].childNodes;
+          if (tdList[1].textContent == num) {
+            const numTd = document.createElement("td");
+            const numText = document.createTextNode(num);
+            const nameTd = document.createElement("td");
+            const nameText = document.createTextNode(name);
+
+            const moneyTd = document.createElement("td");
+            const moneyText = document.createTextNode(money);
+
+            const qtyTd = document.createElement("td");
+            const qtyText = document.createTextNode(qty);
+
+            nameTd.appendChild(nameText);
+            moneyTd.appendChild(moneyText);
+            qtyTd.appendChild(qtyText);
+
+            const tr = document.createElement("tr");
+            tr.appendChild(numTd);
+
+            tr.appendChild(nameTd);
+            tr.appendChild(moneyTd);
+            tr.appendChild(qtyTd);
+
+            var table = document.getElementById("list");
+            table.appendChild(tr);
+          }
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <h1>쇼핑몰</h1>
+    <hr />
+    <input type="text" id="price" value="" />
+    <button onclick="search()">검색</button><br />
+    <hr />
+
+    번호 : <input type="text" id="num" /><br />
+    상품명 : <input type="text" id="name" /> <br />
+    가격 : <input type="text" id="money" /><br />
+    재고량 : <input type="text" id="qty" /><br />
+    <button onclick="insertItem()">추가</button>&nbsp;&nbsp;&nbsp;
+    <button onclick="updateItem()">수정</button>&nbsp;&nbsp;&nbsp;
+    <button onclick="deleteItem()">삭제</button>&nbsp;&nbsp;&nbsp;
+
+    <table border="1" id="list">
+      <tr class="shopColor">
+        <th>번호</th>
+        <th>상품명</th>
+        <th>가격</th>
+        <th>재고량</th>
+      </tr>
+      <tr data-book="b01">
+        <th>1</th>
+        <th>노트북</th>
+        <th class="prices">10000</th>
+        <th>100</th>
+      </tr>
+      <tr>
+        <th>2</th>
+        <th>피아노</th>
+        <th class="prices">20000</th>
+        <th>5</th>
+      </tr>
+      <tr>
+        <th>3</th>
+        <th>물티슈</th>
+        <th class="prices">500</th>
+        <th>1000</th>
+      </tr>
+      <tr>
+        <th>4</th>
+        <th>커피믹스</th>
+        <th class="prices">300</th>
+        <th>2000</th>
+      </tr>
+    </table>
+  </body>
+</html>
