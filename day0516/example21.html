@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <script>
+    function checkValue() {
+      //   const id = document.forms[0].elements[0].value;
+      //   const pwd = document.forms[0].elements[1].value;
+
+      const id = document.myForm.id.value;
+      const pwd = document.myForm.pwd.value;
+      const sex = document.myForm.sex.value;
+
+      if (id == "") {
+        alert("ID를 입력하세요");
+        return false;
+      }
+
+      if (pwd == "") {
+        alert("PWD를 입력하세요");
+        return false;
+      }
+      if (sex == "") {
+        alert("성별을 선택하세요");
+        document.myForm.sex[1].checked = true;
+        // return false;
+      }
+
+      //   var myForm = document.forms[0];
+      //   myForm.setAttribute("action", "formTest.html");
+      //   myForm.submit;
+
+      // document.myForm.action=
+    }
+  </script>
+  <body>
+    <form name="myForm" action="#">
+      <table border="1">
+        <tr>
+          <th>ID</th>
+          <td><input type="text" name="id" /></td>
+        </tr>
+        <tr>
+          <th>PWD</th>
+          <td><input type="password" name="pwd" /></td>
+        </tr>
+        <tr>
+          <th>성별</th>
+          <td>
+            남자 : <input type="radio" name="sex" value="m" /> 여자 :
+            <input type="radio" name="sex" value="f" />
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <!-- <button onclick="checkValue()">로그인</button> -->
+            <a href="javascript:checkValue();">로그인</a>
+          </td>
+        </tr>
+      </table>
+    </form>
+  </body>
+</html>

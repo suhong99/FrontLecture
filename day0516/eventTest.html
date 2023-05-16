@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+    <script>
+      function inlineClick() {
+        alert("인라인클릭");
+      }
+
+      window.onload = function () {
+        const btn = document.getElementById("prop");
+        btn.onclick = function () {
+          alert("프로퍼티클릭");
+        };
+
+        //3.메도스 방식
+        const btnMethod = document.getElementById("method");
+
+        btnMethod.addEventListener("click", function () {
+          alert("메소드 클릭");
+        });
+      };
+    </script>
+  </head>
+  <body>
+    <button onclick="inlineClick()">인라인</button><br />
+    <button id="prop">property</button><br />
+    <button id="method">메소드</button>
+  </body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function init() {
+        var formList = document.forms;
+        // console.log(formList.length);
+
+        // console.log(document.forms[0].elements[0].value);
+
+        // console.log(document.one);
+
+        // console.log(document.one.two.value);
+        console.log(document.one.numberValue);
+
+        document.one.numberValue[3].selected = true;
+        console.log(document.one.numberValue.value);
+
+        const fileList = document.one.uploadFile.focus();
+        fileList[0]?.name;
+        fileList[0]?.size;
+        fileList[0]?.type;
+      }
+
+      function infoFile() {
+        const fileList = document.one.uploadFile.files;
+        console.log(fileList[0].name);
+        console.log(fileList[0].size);
+        console.log(fileList[0].type);
+      }
+    </script>
+  </head>
+  <body onload="init()">
+    <form>
+      <input type="text" value="테스트" />
+    </form>
+    <button onclick="infoFile()">파일정보 확인</button>
+    <form name="one">
+      <input type="text" name="two" value="이름 사용" /><br />
+
+      <select name="numberValue">
+        <option value="S001">TV</option>
+        <option>Computer</option>
+        <option>three</option>
+        <option>four</option>
+      </select>
+
+      <input type="file" name="uploadFile" />
+    </form>
+  </body>
+</html>
