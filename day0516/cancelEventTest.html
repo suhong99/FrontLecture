@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+      window.onload = function () {
+        var aTag = document.getElementsByTagName("a");
+
+        aTag[0].onclick = function (event) {
+          location.href = "one.html";
+          event.preventDefault();
+        };
+      };
+    </script>
+  </head>
+
+  <body>
+    <a href="http://www.daum.net">다음 링크</a>
+  </body>
+</html>

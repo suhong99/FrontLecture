@@ -6,35 +6,130 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script>
-      var data= [
-        ["종로구","용산구","중구","강남구"], ["수영구","동래구","해운대구","부산진구"]
-      ]
-      window.onload=function(){
-        const sido = document.getElementById("sido")
-        sido.onchange= function(){
-          alert("이벤트 발생 확인")
+      var data = [
+        ["종로구", "용산구", "중구", "강남구"],
+        ["수영구", "동래구", "해운대구", "부산진구"],
+      ];
+
+      var hobbyData = [
+        ["AI", "빅데이터","블록체인"],
+        ["자유여행","패키지여행"],
+        ["인도음식","태국음식","중국음식","일본음식"]
+      ];
+      var count =0;
+      var html ="<tr>";
+
+      window.onload = function () {
+        const sido = document.getElementById("sido");
+        const gu = document.getElementById("gu");
+
+        sido.onchange = function () {
+          //1. 서울 , 부산 중 어느것을 선택했는지 확인
+          deleteOption();
+
+          if (sido.value > 0) {
+
+            const guData = data[sido.value - 1];
+            console.log(guData)
+            for (var i = 0; i < guData.length; i++) {
+
+              const option = document.createElement("option");
+              const optionText = document.createTextNode(guData[i]);
+
+              option.appendChild(optionText);
+              gu.appendChild(option);
+            }
+          }
+        };
+        
+        const hobbyList= document.getElementsByClassName("hobby");
+        // console.log(hobbyTable)
+        for (let i =0; i<hobbyList.length;i++){
+          hobbyList[i].addEventListener("change",function(){
+            // table에 있는 데이터를 모두 지우기
+            selectItem();
+            deleteTd();
+
+          })
+        }
+      };
+      function deleteTd() {
+        const hobbyTable= document.getElementById("hobbyTable")//table
+        hobbyTable.innerHTML="";
+      }
+      
+      function selectItem(){
+        const hobbyList = document.getElementsByClassName("hobby");
+        for(let i = 0; i<hobbyList.length;i++){
+          if(hobbyList[i].checked==true){
+            const hobbyValue = hobbyList[i].value;
+
+            switch(hobbyValue){
+              case "it" :
+              addTd(0);
+
+                break;
+
+              case "travel":
+              addTd(1);
+
+                break;  
+
+              case "food" :
+                    addTd(2);
+                break;
+
+            }
+          }
+        }
+        html +="</tr>"
+        const hobbyTable= document.getElementById("hobbyTable")//table
+        
+        hobbyTable.innerHTML=html
+      }
+
+      function addTd(index) {
+        for(let j=0; j<hobbyData[index].length;j++){
+                if(count %3==0){
+                      html += "</tr><tr>"
+                  }
+                  html += "<td>" + hobbyData[index][j] +"</td>";
+                  ++count
+                }
+      }
+
+      function deleteOption(){
+        const gu = document.getElementById("gu");
+
+        // for(let i = 1; i<gu.length; i++){
+        //   gu.removeChild(gu[1]);
+        // }
+
+        while(true){
+          if(gu.length==1){
+            break;
+          } else{
+            gu.removeChild(gu[gu.length-1])
+          }
         }
       }
-      function displayChange(){
-      //1. 사용자, 관리자 영역관리
-      const radioList=document.getElementsByClassName("member")
-              const user = document.getElementById("user")
-                  const admin = document.getElementById("admin")
-              for(let i =0; i<radioList.length;i++){
-                if(radioList[i].checked==true){
-                if( radioList[i].value=="user"){
-                  user.style.display="";
-                  admin.style.display="none"
-                
-                }else {
-                  user.style.display="none";
-                  admin.style.display=""
-                }
-                }
-              }
+      function displayChange() {
+        //1. 사용자, 관리자 영역관리
+        const radioList = document.getElementsByClassName("member");
+        const user = document.getElementById("user");
+        const admin = document.getElementById("admin");
+        for (let i = 0; i < radioList.length; i++) {
+          if (radioList[i].checked == true) {
+            if (radioList[i].value == "user") {
+              user.style.display = "";
+              admin.style.display = "none";
+            } else {
+              user.style.display = "none";
+              admin.style.display = "";
+            }
+          }
+        }
       }
-   
-   
     </script>
   </head>
   <body>
@@ -53,7 +148,7 @@
         <tr>
           <th>주소</th>
           <td>
-            <select id="sido">
+            <select id="sido" >
               <option value="1" >서울</option>
               <option value="2">부산</option>
             </select>
@@ -68,14 +163,24 @@
         <tr>
           <th>관심분야</th>
           <td>
-            <input type="checkbox" name="hobby" value="it" />IT
-            <input type="checkbox" name="hobby" value="travel" />여행
-            <input type="checkbox" name="hobby" value="food" />음식
-            <table border="1">
+            <input type="checkbox"  class="hobby" name="hobby" value="it" />IT
+            <input type="checkbox" class="hobby" name="hobby" value="travel" />여행
+            <input type="checkbox" class="hobby" name="hobby" value="food" />음식
+            <table id="hobbyTable" border="1">
               <tr>
                 <td>AI</td>
-                <td>AI</td>
-                <td>AI</td>
+                <td>빅데이터</td>
+                <td>블록체인</td>
+              </tr>
+              <tr>
+                <td>배낭여행</td>
+                <td>오지여행</td>
+                <td>패지키여행</td>
+              </tr>
+              <tr>
+                <td>중극음식</td>
+                <td>인도음식</td>
+                <td>일본음식</td>
               </tr>
             </table>
           </td>

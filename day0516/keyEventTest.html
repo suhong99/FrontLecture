@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+    <script>
+      function keyEventTest(event) {
+        // console.log(event + " ::: " + event.keyCode);
+        var data = document.getElementById("data").value;
+
+        var targetData = data.charAt(data.length - 1);
+        if (targetData < "0" || targetData > "9") {
+          document.getElementById("data").value = data.substring(
+            0,
+            data.length - 1
+          );
+        }
+      }
+      window.onload = function () {
+        var inputTage = document.getElementById("data");
+
+        inputTag.onkeyup = function (event) {
+          console.log(event.keyCode);
+        };
+      };
+    </script>
+  </head>
+  <body>
+    <!-- <input type="text" id="data" onkeyup="keyEventTest()" /> -->
+    <input type="text" id="data" />
+  </body>
+  <!-- 숫자 말고 다른 문자 입력시 그 문자를 삭제한다. -->
+</html>
