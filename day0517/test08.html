@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="jquery-3.7.0.min.js"></script>
+
+    <script>
+      $(document).ready(function () {
+        console.log($("h1").length);
+        console.log($("h1").filter(":even").length);
+        console.log($("h1").filter(":even").end().length);
+
+        $("h1")
+          .filter(" :even")
+          //   .css("color", "blue")  //주선 풀면 홀짝홀짝 아니면 3 7 (인덱스 2 6 )
+          //   .end()
+          .filter(":odd")
+          .css("color", "red");
+      });
+    </script>
+  </head>
+  <body>
+    <h1>1</h1>
+    <h1>2</h1>
+    <h1>3</h1>
+    <h1>4</h1>
+    <h1>5</h1>
+    <h1>6</h1>
+    <h1>7</h1>
+    <h1>8</h1>
+    <h1>9</h1>
+    <h1>10</h1>
+  </body>
+</html>

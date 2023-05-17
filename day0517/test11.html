@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <script src="jquery-3.7.0.min.js"></script>
+  <script>
+    var xml = "";
+
+    xml += "<friends>";
+    xml += "    <friend>";
+    xml += " <name>연화진</name>";
+    xml += " <language>한국어</language>";
+    xml += "</friend>";
+    xml += "    <friend>";
+    xml += " <name>윤영ㄹㄹ</name>";
+    xml += " <language>일본어</language>";
+    xml += "</friend>";
+    xml += "</friends>";
+
+    $(document).ready(function () {
+      var xmlData = $.parseXML(xml);
+      var data = "";
+
+      $(xmlData)
+        .find("friend")
+        .each(function (index, item) {
+          var name = $(item).find("name");
+          var lang = $(item).find("language");
+
+          data += "<h1>" + name.text() + "</h1>";
+          data += "<p>" + lang.text() + "</p>";
+        });
+
+      document.body.innerHTML += data;
+
+      $("div").addClass("all").filter(":even").addClass("headline");
+
+      $("div").removeClass("other");
+    });
+  </script>
+  <head>
+    <style>
+      .headline {
+        color: gray;
+        width: 150px;
+        height: 70px;
+        background-color: antiquewhite;
+      }
+
+      .all {
+        color: red;
+      }
+
+      .other {
+        background-color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <div>ㅋㅋㅋㅋㅋㅋㅋ</div>
+    <div class="other">ㅎㅎㅎㅎㅎㅎㅎㅎㅎ</div>
+    <!-- 
+    <a href="????"></a>
+    <img src="???" alt="??" /> -->
+  </body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head> </head>
+  <script src="jquery-3.7.0.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $("#textTest").click(function () {
+        var num = Math.random();
+        var text = "$lt; $gt;" + num + "$lt;/p$gt;";
+
+        $("#messageArea").text(text);
+      });
+
+      $("#formTest").click(function () {
+        var html = "<input type='file'><br/>";
+        var curData = $("#myForm").html();
+
+        $("#myForm").html(html + curData);
+      });
+    });
+  </script>
+  <body>
+    <div id="myForm"></div>
+    <div id="messageArea"></div>
+
+    <button id="formTest">File Form 추가</button>
+    <button id="textTest">텍스트 추가</button>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+  </head>
+  <script src="jquery-3.7.0.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $("input[name='name']").val("홍길동");
+      //   alert($("input[name='name']").val());
+
+      $("input:text").css("background-color", "yellow");
+      $("input:button").val("변경했어요");
+      $("input:radio").attr("checked", true);
+
+      //   alert($("select").val());
+      //   $("select > option:even").attr("selected", true);
+      $("select > option:odd").attr("selected", true);
+    });
+  </script>
+  <body>
+    이름 : <input type="text" name="name" /><br />
+    나이 : <input type="text" name="age" /><br />
+    <input type="button" value="클릭" />
+    <input type="radio" value="클릭" />
+    <input type="checkbox" />
+    <select>
+      <option>one</option>
+      <option>two</option>
+      <option>three</option>
+    </select>
+  </body>
+</html>

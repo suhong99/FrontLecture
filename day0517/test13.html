@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      div {
+        height: 80px;
+        background-color: red;
+      }
+    </style>
+  </head>
+  <script src="jquery-3.7.0.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $("div").css("width", function (index) {
+        return (index + 1) * 100;
+      });
+
+      //$("div")
+    });
+  </script>
+  <body>
+    <div data-index="1111">one</div>
+    <div>two</div>
+    <div>three</div>
+    <div>four</div>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="jquery-3.7.0.min.js"></script>
+
+    <script>
+      $(document).ready(function () {
+        $("h1").css("color", "red").add("h2").css("color", "blue"); //전부다 blue가 됨
+
+        var list = $("h1").add("h2");
+        var listTow = $("h1, h2");
+        console.log(list.length);
+      });
+    </script>
+  </head>
+  <body>
+    <h1>Test-1</h1>
+    <h2>Exam-1</h2>
+    <h1>Test-2</h1>
+    <h2>Exam-2</h2>
+  </body>
+</html>

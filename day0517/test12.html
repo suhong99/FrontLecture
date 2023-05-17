@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <script src="jquery-3.7.0.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      ////그냥 넣기
+      //   $("img").attr("src", "exam.png");
+      ////함수형
+      //   $("img").attr("src", function () {
+      //     return "sample.png";
+      //   });
+      var obj = {
+        src: "obj.png",
+        alt: "객체를 사용한 alt적용",
+      };
+      $("img").attr(obj);
+      console.log($("img").attr("src")); //get value
+    });
+  </script>
+  <body>
+    <img src="test.png" alt="테스트 이미지" />
+  </body>
+</html>

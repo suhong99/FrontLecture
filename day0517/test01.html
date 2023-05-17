@@ -6,6 +6,9 @@
       $(document).ready(function () {
         $("h1").css("color", "orange");
         $("#target").css("color", "red");
+        // $(".test").css("color", "green");
+        $(".test, .exam").css("color", "yellow");
+        $("h1, p").css("background-color", "yellow");
       });
     </script>
     <title>Document</title>
@@ -13,8 +16,8 @@
   <body>
     <div>
       <h1 id="target">First Line</h1>
-      <p>First 단락</p>
-      <h1>Second Line</h1>
+      <p class="test">First 단락</p>
+      <h1 class="exam">Second Line</h1>
       <p>Second 단락</p>
     </div>
   </body>

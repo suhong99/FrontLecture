@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+  </head>
+  <script>
+    var data = [
+      { name: "홍", addr: "서울" },
+      { name: "최", addr: "부산" },
+      { name: "태", addr: "대구" },
+      { name: "항", addr: "대전" },
+      { name: "후", addr: "성남" },
+    ];
+
+    var html = "";
+    $.each(data, function (index, item) {
+      console.log(index + " ::: " + item);
+
+      console.log(item.name + " :::" + item["addr"]);
+      html += "<p>" + index + ": [" + item.name + " : " + item.addr + "]</p>";
+    });
+
+    $(document).ready(function () {
+      $("#content").html(html);
+      $("#content").innerHTML -
+        //   var trList = $("tr");
+        //   $.each(trList, function (index, tr) {
+        //     if (index % 2 == 0) {
+        //       $(tr).css("background-color", "yellow");
+        //     } else {
+        //       $(tr).css("color", "red");
+        //     }
+        //   });
+
+        $("tr").each(function (index, tr) {
+          if (index % 2 == 0) {
+            $(tr).css("background-color", "yellow");
+          } else {
+            $(tr).css("color", "red");
+          }
+        });
+    });
+  </script>
+  <body>
+    <div id="content"></div>
+    <table border="1">
+      <tr>
+        <td>123</td>
+        <td>123</td>
+        <td>123</td>
+      </tr>
+      <tr>
+        <td>abc</td>
+        <td>abc</td>
+        <td>abc</td>
+      </tr>
+      <tr>
+        <td>가나다</td>
+        <td>가나다</td>
+        <td>가나다</td>
+      </tr>
+    </table>
+  </body>
+</html>

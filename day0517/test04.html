@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+  </head>
+  <script src="jquery-3.7.0.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $("tr:even").css("background-color", "gray");
+      $("tr:odd").css("background-color", "yellow");
+      $("tr:nth-child(1)")
+        .css("background-color", "gray")
+        .css("color", "white");
+
+      $("th:contains('작')").css("color", "red");
+      console.log($("td:eq(2)").text());
+    });
+  </script>
+  <body>
+    <table>
+      <tr>
+        <th>번호</th>
+        <th>제목</th>
+        <th>작성일</th>
+        <th>작성자</th>
+        <th>조회수</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>어린왕자</td>
+        <td>1980.01.01</td>
+        <td>생택쥐베리</td>
+        <td>100</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>홍길동</td>
+        <td>미상</td>
+        <td>허균</td>
+        <td>250</td>
+      </tr>
+      <tr>
+        <th>3</th>
+        <th>개미</th>
+        <th>1993.01.01</th>
+        <th>베르나르베르</th>
+        <th>12300</th>
+      </tr>
+      <tr>
+        <th>4</th>
+        <th>원피스</th>
+        <th>2000.01.01</th>
+        <th>오다</th>
+        <th>123000</th>
+      </tr>
+    </table>
+  </body>
+</html>

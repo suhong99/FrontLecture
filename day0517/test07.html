@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <script>
+    $(document).ready(function () {
+      var pList = $("p").filter(function (index, item) {
+        var itemValue = $(item).text();
+
+        if (itemValue.length > 2) {
+          return item;
+        }
+
+        pList.css("color", "red").text("초기데이터를 설정해주세요.");
+        //만약 each()를 사용하여 filter()기능을 수행한다면?
+        $("p").each(function (index, item) {
+          var itemValue = $(item).text();
+
+          if (itemValue.length == 0) {
+            $(item).css("color", "blue").text("each사용");
+          }
+        });
+        console.log(pList.length);
+      });
+    });
+  </script>
+  <body>
+    <p>하나 - first</p>
+    <p>둘</p>
+    <p>세엣 - third</p>
+    <p>네엣</p>
+  </body>
+</html>

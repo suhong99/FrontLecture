@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head> </head>
+  <script src="jquery-3.7.0.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      var pTag = $("<p></p>");
+      pTag.text("zzzzzzz");
+      $("#top").append(pTag);
+
+      $("<a></a>", {
+        href: "http://www.google.co.kr",
+        target: "_blank",
+      })
+        .text("구글링")
+        .appendTo("body");
+    });
+  </script>
+  <body>
+    <div id="top"></div>
+  </body>
+</html>

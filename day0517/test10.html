@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="jquery-3.7.0.min.js"></script>
+
+    <script>
+      $(document).ready(function () {
+        $("select").each(function (index, item) {
+          if ($(item).is(".one")) {
+            $(item).css("display", "none");
+          }
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <select class="one">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+    </select>
+    <select class="two">
+      <option>일</option>
+      <option>이</option>
+      <option>삼</option>
+    </select>
+  </body>
+</html>
