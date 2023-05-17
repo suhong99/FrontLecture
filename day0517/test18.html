@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head> </head>
+  <script src="jquery-3.7.0.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $("<h1></h1>").text("append 하면").appendTo("body");
+      //   $("<h1></h1>").text("after 하면").insertAfter("p");
+      $("h1").after("<p></p>").text("after 하면");
+    });
+  </script>
+  <body>
+    <p>--------start -----</p>
+    <h1>-------middle-----</h1>
+    <h3>--------end -----</h3>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head> </head>
+  <script src="jquery-3.7.0.min.js"></script>
+  <script>
+    var content = [
+      { name: "참외씨", region: "ㄱ" },
+      { name: "수박씨", region: "ㄴ" },
+      { name: "호박씨", region: "ㄷ" },
+    ];
+
+    $(document).ready(function () {
+      $("div").append(function (index) {
+        var obj = content[index];
+        return obj.name + " : " + obj.region;
+      });
+    });
+  </script>
+  <body>
+    <p>--------start -----</p>
+  </body>
+</html>
