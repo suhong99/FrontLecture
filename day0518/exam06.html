@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="../day0517/jquery-3.7.0.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        var context = document.getElementById("canvas").getContext("2d");
+        // var context = $("#canvas")[0].getContext("2d");
+        $("#canvas").on({
+          mousedown: function (event) {
+            var x = event.pageX;
+            var y = event.pageY;
+            context.beginPath();
+            context.moveTo(x, y);
+
+            $("#xyDown").val(x + " : " + y);
+          },
+          mouseup: function (event) {
+            var x = event.pageX;
+            var y = event.pageY;
+
+            context.lineTo(x, y);
+            context.stroke();
+            $("#xyUp").val(x + " : " + y);
+          },
+        });
+      });
+    </script>
+    <style>
+      canvas {
+        width: 300px;
+        height: 200px;
+        background-color: darkgray;
+        border: 1px solid gray;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="canvas"></canvas>
+    <input type="text" id="xyDown" />
+    <input type="text" id="xyUp" />
+  </body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="../day0517/jquery-3.7.0.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("div").click(function () {
+          console.log($("h1", this).text(), "this바인딩");
+          console.log($("div > h1").text(), "비교대상 div>h1");
+        });
+      });
+    </script>
+    <style></style>
+  </head>
+  <body>
+    <div>
+      <h1>Head -1</h1>
+      <p>sub -1</p>
+    </div>
+    <div>
+      <h1>Head -2</h1>
+      <p>sub -2</p>
+    </div>
+    <div>
+      <h1>Head -3</h1>
+      <p>sub -3</p>
+    </div>
+  </body>
+</html>

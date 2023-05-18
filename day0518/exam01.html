@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="../day0517/jquery-3.7.0.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        setInterval(function () {
+          $("p:first").appendTo("div");
+        }, 1000);
+      });
+    </script>
+    <style>
+      p {
+        width: 70px;
+        height: 70px;
+        background-color: red;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <p>one</p>
+      <p>two</p>
+      <p>three</p>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="../day0517/jquery-3.7.0.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("h1").on("click", function () {
+          $(this).html($(this).html() + "+");
+        });
+
+        // //같은것
+        // $("h1").click(function () {
+        //   alert("test");
+        // });
+
+        //
+        // $("h1").on({
+        //   mouseover: function () {
+        //     $(this).addClass("reverse");
+        //   },
+        //   mouseleave: function () {
+        //     $(this).removeClassClass("reverse");
+        //   },
+        // });
+
+        $("h1").hover(
+          function () {
+            $(this).addClass("reverse");
+          },
+          function () {
+            $(this).removeClass("reverse");
+          }
+        );
+      });
+    </script>
+    <style>
+      .reverse {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Base Data</h1>
+    <hr />
+    <div>
+      <p>오늘은 전국적으로 비가 오고 있습니다.</p>
+    </div>
+  </body>
+</html>

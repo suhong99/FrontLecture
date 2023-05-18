@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="../day0517/jquery-3.7.0.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("p:first")
+          .mouseover(function () {
+            $(this).css("color", "red");
+          })
+          .mouseleave(
+            function good() {
+              $(this).css("color", "black");
+            },
+            function bad() {
+              $(this).css("background-color", "black");
+            }
+          );
+
+        $("p:nth-child(2)").click(function () {
+          alert("제거합니다.");
+          //   $("p:first").removeAttr("onclick");
+
+          // 스크립트로 붙인것만 지워지고 simple()은 안 지워짐
+          $("p:first").off("mouseleave");
+        });
+
+        $("p:last").one("click", function () {
+          alert("one");
+        });
+      });
+
+      function simple() {
+        alert("-=-=test=-=-");
+      }
+    </script>
+
+    <style></style>
+  </head>
+  <body>
+    <p onclick="simple()">이벤트 연습</p>
+    <p>이벤트 제거</p>
+    <p>추가했을 때, 반응은?</p>
+  </body>
+</html>

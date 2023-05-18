@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="../day0517/jquery-3.7.0.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("h1:last").prependTo("div");
+        $("h1:first").clone().appendTo("div");
+        $("ul").clone(false, false).appendTo("div");
+      });
+    </script>
+  </head>
+  <body>
+    <h1>Head Line</h1>
+    <hr />
+    <div>
+      <p>오늘은 전국적으로 비가 오고 있습니다.</p>
+    </div>
+
+    <ul>
+      <li>사과</li>
+      <li>딸기</li>
+    </ul>
+  </body>
+</html>
