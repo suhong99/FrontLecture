@@ -20,9 +20,11 @@
         });
 
         $("input:not(:first)").on("change", function () {
-          $(this).prop("checked")
-            ? false
-            : $("input:first").prop("checked", false);
+          if ($("input:first").prop("checked")) {
+            $(this).prop("checked")
+              ? false
+              : $("input:first").prop("checked", false);
+          }
         });
       });
 
@@ -58,6 +60,12 @@
         <td>3</td>
         <td>종달새</td>
         <td>ㅋㅌㅊ</td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" /></td>
+        <td>3</td>
+        <td>슈우웅</td>
+        <td>뉴뉴</td>
       </tr>
     </table>
   </body>
