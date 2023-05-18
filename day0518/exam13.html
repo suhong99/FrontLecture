@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="../day0517/jquery-3.7.0.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $(window).scroll(function (event) {
+          var scrollHeigth = $(window).scrollTop() + $(window).height();
+          var documentHeigth = $(document).height();
+          console.log($(window).height() + "윈도우 높이");
+          console.log($(window).scrollTop() + "스크롤 탑");
+
+          console.log(scrollHeigth + "뒤가 문서" + documentHeigth);
+          if (scrollHeigth >= documentHeigth - 100) {
+            for (let i = 0; i < 5; i++) {
+              $("body").append("<h1>Infinity Scroll</h1>");
+            }
+          }
+          //   console.log(event.screenX + ":" + event.screenY);
+        });
+      });
+    </script>
+    <style></style>
+  </head>
+  <body>
+    <h1>스크롤 테스트</h1>
+    <br /><br />
+    <br /><br />
+    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+
+    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+  </body>
+</html>

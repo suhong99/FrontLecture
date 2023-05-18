@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="../day0517/jquery-3.7.0.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("input:first").on("change", function () {
+          //   var isChecked = $(this).prop("checked");
+          //   console.log(isChecked, " 이거머지");
+          //   $("input:not(:first)").prop("checked", isChecked);
+          //   console.log("안에서 찍은 애");
+          console.log($(this));
+          //   console.log(this);
+          console.log("구분선");
+          console.log($(this).prop("checked"));
+
+          $(this).prop("checked")
+            ? $("input").prop("checked", true)
+            : $("input").prop("checked", false);
+        });
+
+        $("input:not(:first)").on("change", function () {
+          $(this).prop("checked")
+            ? false
+            : $("input:first").prop("checked", false);
+        });
+      });
+
+      //   console.log("밖에서 찍은 input:first");
+      //   console.log($("input:first"));
+    </script>
+    <style></style>
+  </head>
+  <body>
+    <table border="1">
+      <tr>
+        <th><input type="checkbox" /></th>
+        <th>번호</th>
+        <th>고객명</th>
+        <th>아이디</th>
+      </tr>
+      <tr>
+        <td>
+          <input type="checkbox" />
+        </td>
+        <td>1</td>
+        <td>홍길동</td>
+        <td>abcd</td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" /></td>
+        <td>2</td>
+        <td>임꺽정</td>
+        <td>xyz</td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" /></td>
+        <td>3</td>
+        <td>종달새</td>
+        <td>ㅋㅌㅊ</td>
+      </tr>
+    </table>
+  </body>
+</html>

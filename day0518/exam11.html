@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="../day0517/jquery-3.7.0.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#outer")
+          .mouseover(function () {
+            console.log("mouse over :::");
+          })
+          .mouseenter(function () {
+            console.log("mouse enter");
+          });
+      });
+    </script>
+    <style>
+      body > div {
+        width: 200px;
+        height: 200px;
+        background-color: burlywood;
+      }
+      body > div > div {
+        width: 100px;
+        height: 100px;
+        background-color: cyan;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="outer">
+      <div class="inter"></div>
+    </div>
+  </body>
+</html>

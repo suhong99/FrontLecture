@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="../day0517/jquery-3.7.0.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("a").click(function (e) {
+          console.log("custom event ::::::" + e);
+          e.preventDefault(); // href 이벤트가 실행안됨
+          e.stopPropagation(); // h1의 이베늩 막는 용도
+        });
+
+        $("h1").click(function (e) {
+          console.log(e, "+ h1의 이벤트");
+          $(this).css("background-color", "yellow");
+        });
+      });
+    </script>
+    <style>
+      h1 {
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>
+      <a href="http://www.daum.net">다음</a>
+    </h1>
+  </body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="../day0517/jquery-3.7.0.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("textarea").on("keyup", function () {
+          //남은 글자수를 구합니다..
+          var inputLength = $(this).val().length;
+          if (inputLength > 50) {
+            alert("50자를 넘어가면 안됩니다.");
+            $(this).val($(this).val().substring(0, 50));
+            inputLength = $(this).val().length;
+          }
+          $("span").html(inputLength);
+        });
+        // //내가 쓴거
+        // $("textarea").keyup(function () {
+        //   //남은 글자수를 구합니다..
+        //   var inputLength = $(this).val().length;
+        //   if (inputLength > 50) {
+        //     $(this).val($(this).val().substring(0, 50));
+        //     inputLength = $(this).val().length;
+        //   }
+        //   $("span").html(inputLength);
+        // });
+      });
+    </script>
+    <style>
+      textarea {
+        width: 300px;
+        height: 200px;
+      }
+
+      span {
+        color: blue;
+      }
+    </style>
+  </head>   
+    <textarea></textarea>
+    <span>0</span>
+    /50자
+  </body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="../day0517/jquery-3.7.0.min.js"></script>
+    <script>
+      var count = 0;
+      $(document).ready(function () {
+        $("h1").click(function (data1, data2) {
+          console.log(data1, " == data1 ++ data2==", data2);
+
+          $(this).html($(this).html() + "*");
+        });
+
+        var myClick = setInterval(function () {
+          $("h1:last").trigger("click");
+          count++;
+          if (count == 10) {
+            clearInterval(myClick);
+          }
+        }, 1000);
+      });
+    </script>
+    <style></style>
+  </head>
+  <body>
+    <h1>one</h1>
+    <h1>two</h1>
+  </body>
+</html>

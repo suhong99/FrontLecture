@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="../day0517/jquery-3.7.0.min.js"></script>
+    <script>
+      var count = 0;
+      $(document).ready(function () {
+        $("div").on("click", "h1", function () {
+          $("div").append("<h2>add-" + count++ + "</h2>");
+          $("div").off("click", "h1");
+        });
+      });
+    </script>
+    <style></style>
+  </head>
+  <body>
+    <div>
+      <p style="background-color: blue">p임</p>
+      <h1>Test</h1>
+      <h2 style="background-color: green">이건 어떻게</h2>
+    </div>
+  </body>
+</html>
