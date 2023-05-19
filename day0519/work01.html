@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="../day0517/jquery-3.7.0.min.js"></script>
+    <script>
+      var num = parseInt(Math.random() * 100) + 1;
+      var count = 0;
+
+      $(document).ready(function () {
+        $("button").on("click", function () {
+          if (num == $("input").val()) {
+            $(".result").text("정답입니다.");
+          } else if (num > $("input").val()) {
+            $(".result").text("Up : " + num);
+          } else {
+            $(".result").text("Down");
+          }
+          count++;
+          $(".count").text(count);
+        });
+      });
+    </script>
+    <style></style>
+  </head>
+  <body>
+    <p>결과 (<span class="count">0</span>): <span class="result"></span></p>
+    입력 : <input type="text" />
+    <button>전송</button>
+  </body>
+</html>
