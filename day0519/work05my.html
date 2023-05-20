@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      div {
+        position: absolute;
+      }
+
+      .container {
+        width: 100px;
+        height: 30px;
+        border: 1px solid black;
+        border-radius: 1rem;
+        overflow: hidden;
+      }
+
+      #container-1 {
+        left: 0px;
+        top: 0px;
+      }
+      #container-2 {
+        left: 120px;
+        top: 0px;
+      }
+      #container-3 {
+        left: 240px;
+        top: 0px;
+      }
+
+      .content {
+        width: 100%;
+        height: 100%;
+        color: white;
+        text-align: center;
+        top: 30px;
+      }
+
+      .content-1 {
+        background-color: red;
+      }
+      .content-2 {
+        background-color: green;
+      }
+      .content-3 {
+        background-color: pink;
+      }
+
+      #buttonDiv {
+        left: 0px;
+        top: 80px;
+      }
+    </style>
+  </head>
+  <script src="../day0517/jquery-3.7.0.min.js"></script>
+  <script>
+    var isStop = false;
+
+    $(document).ready(function () {
+      var count = 0;
+      var supInterval_1;
+      var supInterval_2;
+      var supInterval_3;
+
+      var startFunc = [
+        function () {
+          // 첫번째 (container-1)
+          isStop = false;
+
+          var term = parseInt(Math.random() * 50) * 2; // 반복 속도를 유동적으로 설정
+          console.log("container-1 : " + term);
+
+          supInterval_1 = setInterval(function () {
+            var subDiv = $(".content-1")[count % $(".content-1").length];
+            subRolling(subDiv, term);
+            count++;
+          }, term);
+        },
+        function () {
+          // 두번째 (container-2)
+          isStop = false;
+
+          var term = parseInt(Math.random() * 50) * 2;
+          console.log("container-2 : " + term);
+
+          supInterval_2 = setInterval(function () {
+            var subDiv = $(".content-2")[count % $(".content-2").length];
+            subRolling(subDiv);
+            count++;
+          }, term);
+        },
+        function () {
+          // 세번째 (container-3)
+          isStop = false;
+
+          var term = parseInt(Math.random() * 50) * 2;
+          console.log("container-3 : " + term);
+
+          supInterval_3 = setInterval(function () {
+            var subDiv = $(".content-3")[count % $(".content-3").length];
+            subRolling(subDiv);
+            count++;
+          }, term);
+        },
+      ];
+
+      $("#start").click(function () {
+        isStop = false;
+
+        var num = 0;
+        var top = setInterval(function () {
+          startFunc[num]();
+
+          if (++num == 3) {
+            clearInterval(top);
+          }
+        }, 10);
+      });
+
+      // 한번에 종료 시키려고 함.
+      $("#stop").click(function () {
+        clearInterval(supInterval_1);
+        clearInterval(supInterval_2);
+        clearInterval(supInterval_3);
+
+        isStop = true;
+      });
+    });
+
+    function subRolling(divObj, term) {
+      var height = 30;
+
+      var subInterval = setInterval(function () {
+        $(divObj).css("top", --height);
+
+        if (isStop) {
+          clearInterval(subInterval);
+
+          if (height < 0) {
+            $(divObj).css("top", -30);
+          } else if (height < 29) {
+            $(divObj).css("top", 0);
+          }
+        }
+
+        if (height == -30) {
+          clearInterval(subInterval);
+        }
+      }, term / height);
+    }
+  </script>
+  <body>
+    <div id="container-1" class="container">
+      <div class="content content-1">1</div>
+      <div class="content content-1">2</div>
+      <div class="content content-1">3</div>
+      <div class="content content-1">4</div>
+      <div class="content content-1">5</div>
+    </div>
+    <div id="container-2" class="container">
+      <div class="content content-2">1</div>
+      <div class="content content-2">2</div>
+      <div class="content content-2">3</div>
+      <div class="content content-2">4</div>
+      <div class="content content-2">5</div>
+    </div>
+    <div id="container-3" class="container">
+      <div class="content content-3">1</div>
+      <div class="content content-3">2</div>
+      <div class="content content-3">3</div>
+      <div class="content content-3">4</div>
+      <div class="content content-3">5</div>
+    </div>
+    <div id="buttonDiv">
+      <button id="start">시작 (ALL)</button>
+      <button id="stop">종료 (ALL)</button>
+    </div>
+  </body>
+</html>

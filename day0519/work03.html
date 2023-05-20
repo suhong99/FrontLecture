@@ -1,26 +1,30 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <script src="../day0517/jquery-3.7.0.min.js"></script>
-    <script>
-      //v파일등록 갯수는 제한없으니 삭제 가능해야함
-      //추가누를떄마다
-      $(document).ready(function () {
-        $("button.add").on("click", function () {
-          var tr = "<tr>";
-          tr += "  <td><input type='file'/></td>";
-          tr += "  <td><button class = 'del'>삭제</button></td>";
-          tr += "</tr>";
-          $("table:last").append(tr);
-        });
+  <!--
+        [ 자료실 데이터 입력 ]
 
-        $("#uploadFile").on("click", "button", function () {
-          $(this).parent().parent().remove();
-        });
+        제목과 내용, 그리고 파일을 등록할 수 있는 폼을 작성한다.
+
+        파일은 갯수에 제한이 없으며, 동적으로 파일 등록 폼을 생성할 수 있다.
+        불필요한 파일 등록 폼은 삭제 버튼을 통해 제거할 수 있다.
+    -->
+  <script src="../day0517/jquery-3.7.0.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $("#add").on("click", function () {
+        var tr = "<tr>";
+        tr += "       <td><input type='file' /></td>";
+        tr += "       <td><button class='del'>삭제</button></td>";
+        tr += "</tr>";
+
+        $("#uploadFile").append(tr);
       });
-    </script>
-    <style></style>
-  </head>
+
+      $("#uploadFile").on("click", "button", function () {
+        $(this).parent().parent().remove();
+      });
+    });
+  </script>
   <body>
     <table border="1">
       <tr>
@@ -29,24 +33,15 @@
       </tr>
       <tr>
         <th>내용</th>
-        <td><input type="text" /></td>
+        <td><textarea></textarea></td>
       </tr>
       <tr>
         <th>
           첨부파일
-          <button class="add">추가</button>
+          <button id="add">추가</button>
         </th>
         <td>
-          <table id="uploadFile" border="1">
-            <tr>
-              <td><input type="file" /></td>
-              <td><button class="del">삭제</button></td>
-            </tr>
-            <tr>
-              <td><input type="file" /></td>
-              <td><button class="del">삭제</button></td>
-            </tr>
-          </table>
+          <table border="1" id="uploadFile"></table>
         </td>
       </tr>
     </table>

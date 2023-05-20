@@ -16,10 +16,19 @@
         width: 210px;
         height: 50px;
         text-align: right;
+        box-sizing: border-box;
         padding-right: 15px;
       }
     </style>
   </head>
+  <!-- 
+        [ 웹용 계산기 ]
+
+        1. 배열에 있는 데이터를 table에 순차적으로 삽입(button)한다. (계산기 자판 배열)
+        2. 버튼을 클릭하면 textField에 해당 버튼의 value값을 추가한다.
+          2.1 연산자가 클릭되기 전까지는 숫자를 연결하여 보여준다.
+        3. 계산 버튼을 클릭하면, textField의 값을 계산하여 보여준다.
+     -->
   <script src="../day0517/jquery-3.7.0.min.js"></script>
   <script>
     var buttonList = [
@@ -34,61 +43,66 @@
         var subButton = buttonList[i];
 
         var tr = "<tr>";
+
         for (var j = 0; j < subButton.length; j++) {
           tr += "<td><button>" + subButton[j] + "</button></td>";
         }
+
         tr += "</tr>";
         $("#buttonList").append(tr);
       }
     }
 
-    $(document).ready(function () {
-      initButton();
-      var operVal = "";
-      var resultVal = 0;
-      //이벤트 연결
+    function calc() {
+      if (operVal == "+") {
+        resultVal = resultVal + parseFloat($("#result").val());
+      } else if (operVal == "-") {
+        resultVal = resultVal - parseFloat($("#result").val());
+      } else if (operVal == "*") {
+        resultVal = resultVal * parseFloat($("#result").val());
+      } else if (operVal == "/") {
+        resultVal = resultVal / parseFloat($("#result").val());
+      }
+    }
 
+    var resultVal = 0;
+    var operVal = "";
+
+    $(document).ready(function () {
+      // 버튼 정리
+      initButton();
+
+      // 이벤트 연결
       $("button").on("click", function () {
         var buttonVal = $(this).text();
         var curVal = $("#result").val();
+
         if (
           buttonVal == "+" ||
           buttonVal == "-" ||
           buttonVal == "*" ||
           buttonVal == "/"
         ) {
+          // 1. 현재 textfield 데이터와 resultVal를 연산한다.
+          // 2. 이때, 연산이 최초 수행된 것이면, 단순 + 를 한다.
+
+          // ???? (연산자) textField 값 => 결과
+
           if (operVal == "") {
-            resultVal = parseFloat($("#result").val());
+            resultVal = resultVal + parseFloat($("#result").val());
           } else {
-            if (buttonVal == "+") {
-              resultVal = resultVal + parseFloat($("#result").val());
-            } else if (buttonVal == "-") {
-              resultVal = resultVal - parseFloat($("#result").val());
-            } else if (buttonVal == "*") {
-              resultVal = resultVal * parseFloat($("#result").val());
-            } else if (buttonVal == "/") {
-              resultVal = resultVal / parseFloat($("#result").val());
-            }
+            calc();
           }
-          //   firstVal = parseFloat(curVal);
+
           operVal = $(this).text();
           $("#result").val("");
         } else if (buttonVal == "=") {
-          resultVal = resultVal + parseFloat($("#result").val());
-          switch (operVal) {
-            case "+":
-              resultVal + parseFloat($("#result").val());
-              break;
-            case "-":
-              resultVal - parseFloat($("#result").val());
-              break;
-            case "*":
-              resultVal * parseFloat($("#result").val());
-              break;
-            case "/":
-              resultVal / parseFloat($("#result").val());
-              break;
-          }
+          calc();
+
+          $("#result").val(resultVal);
+
+          operVal = "";
+          resultVal = 0;
         } else {
           $("#result").val(curVal + $(this).text());
         }
@@ -101,7 +115,9 @@
         <td><input type="text" id="result" disabled /></td>
       </tr>
       <tr>
-        <td><table id="buttonList"></table></td>
+        <td>
+          <table id="buttonList"></table>
+        </td>
       </tr>
     </table>
   </body>

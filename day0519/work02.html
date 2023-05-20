@@ -1,55 +1,77 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <script src="../day0517/jquery-3.7.0.min.js"></script>
-    <script>
-      var time = 0;
+  <!-- 
+        [ 스탑워치 만들기 ] 
+        1. 시간은 0.1초 단위로 표기한다.
+        2. 시작 버튼을 누르면 시간이 input에 표기되고, 시작 버튼을 클릭할 수 없게 disable 시킨다.
+        3. 중지 버튼을 누르면 시간이 멈추고, 버튼명을 재시작으로 변경한다.
+        4. 재시작 버튼을 누르면 시간이 다시 흐르고, 버튼명을 중지로 변경한다.
+        5. 종료 버튼을 누르면 시간이 멈추고, 시작 버튼을 활성화 한다.
+    -->
+  <script src="../day0517/jquery-3.7.0.min.js"></script>
+  <script>
+    var time = 0;
+    var interval;
 
-      var interval;
-      $(document).ready(function () {
-        // 스탑워치 만들기
-        //  1. 시간은 0.1초 단위로 표기
-        //  2. 시작 버튼을 누르면 시간이 input에 표기되고, 시작 버튼을 클릭할 수 없게 disable함
-        //  3. 중지 버튼을 누르면 시간이 멈추고 버튼명을 재시작으로 변경한다.
-        //  4. 재시작 버튼을 누르면 시간이 다시 흐르고 버튼명을 중지로 변경한다.
-        //  5. 종료 버튼을 누르면 시간이 멈추고, 시작 버튼을 활성화 시킨다.
+    function calcTime() {
+      var txt;
 
-        $("button.start").on("click", function () {
-          interval = setInterval(function () {
-            time += 0.01;
-            $("input").val(time.toFixed(2));
-          }, 100);
-          $(this).prop("disabled", true);
-        });
+      var etc = time % 10; // 0.1초
+      var second = parseInt(time / 10); // 초
+      var minute = parseInt(second / 60); // 분
+      var hour = parseInt(minute / 60); // 시간
 
-        $("button.stop").on("click", function () {
-          var text = $(this).text();
-          if (text == "중지") {
-            clearInterval(interval);
-            $(this).text("재시작");
-          } else if (text == "재시작") {
-            interval = setInterval(function () {
-              time += 0.01;
-              $("input").val(time.toFixed(2));
-            }, 100);
-            $(this).text("중지");
-          }
-        });
+      txt =
+        hour +
+        " : " +
+        (minute - hour * 60) +
+        " : " +
+        (second - minute * 60) +
+        " : " +
+        etc;
 
-        $("button.end").on("click", function () {
-          clearInterval(interval);
-          time = 0;
-          $("input").val(time.toFixed(2));
-          $("button.start").prop("disabled", false);
-        });
+      $("input").val(txt);
+    }
+
+    $(document).ready(function () {
+      $("#start").on("click", function () {
+        $(this).attr("disabled", true); // 시작 버튼을 비활성화
+
+        interval = setInterval(function () {
+          time += 1;
+          calcTime();
+        }, 100);
       });
-    </script>
-    <style></style>
-  </head>
+
+      $("#pause").on("click", function () {
+        var text = $(this).text();
+
+        if (text == "중지") {
+          clearInterval(interval);
+          $(this).text("재시작");
+        } else {
+          $(this).text("중지");
+
+          interval = setInterval(function () {
+            time += 1;
+            calcTime();
+          }, 100);
+        }
+      });
+
+      $("#end").on("click", function () {
+        clearInterval(interval);
+        time = 0;
+
+        $("#start").attr("disabled", false); // 시작 버튼을 활성화
+      });
+    });
+  </script>
   <body>
-    <input type="text" disabled value="0" /><br />
-    <button class="start">시작</button>
-    <button class="stop">중지</button>
-    <button class="end">종료</button>
+    <input type="text" disabled /><br />
+    <button id="start">시작</button>
+    <button id="pause">중지</button>
+    <button id="end">종료</button>
+    <!-- <button>초기화</button> -->
   </body>
 </html>
