@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="../day0517/jquery-3.7.0.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $(document).ready(function () {
+          setInterval(function () {
+            $("div")
+              .animate(
+                {
+                  left: "500px",
+                },
+                1000
+              )
+              .animate(
+                {
+                  left: "0px",
+                },
+                1000
+              );
+          }, 2000);
+        });
+        $("#one").click(function () {
+          $("div").stop(); //default가 false인듯
+        });
+        $("#two").click(function () {
+          $("div").stop(true);
+        });
+        $("#three").click(function () {
+          $("div").stop(false, true);
+        });
+        $("#four").click(function () {
+          $("div").stop(tru, true);
+        });
+      });
+    </script>
+    <style>
+      div {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        position: relative;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="one">stop()</button>
+    <button id="two">stop(true)</button>
+    <button id="three">stop(false,true)</button>
+    <button id="four">stop(true,true)</button>
+
+    <div></div>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="../day0517/jquery-3.7.0.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        var interval = createInterval();
+
+        $("#move").click(function () {
+          interval = createInterval();
+        });
+
+        $("stop").click(function () {
+          clearInterval(interval);
+          $("div").stop(true);
+        });
+
+        $("#delay").click(function () {
+          $("div").delay(3000).animate({ left: "0px" }, 1000);
+        });
+      });
+
+      function createInterval() {
+        return setInterval(function () {
+          $("div").animate({ left: "300px" }, 1000).animate({ left: "0px" });
+        }, 2000);
+      }
+    </script>
+    <style></style>
+  </head>
+  <body>
+    <button id="move">Move</button>
+    <button id="stop">stop</button>
+    <button id="delay">Delay</button>
+
+    <div></div>
+  </body>
+</html>

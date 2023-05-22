@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="../day0517/jquery-3.7.0.min.js"></script>
+    <script src="jquery.innerfade.js"></script>
+
+    <script>
+      $(document).ready(function () {
+        $("#inner-fade").innerfade({
+          animationtype: "fade",
+          speed: 750,
+          timeout: 2000,
+          type: "random",
+          containerheight: "350px",
+        });
+      });
+    </script>
+    <style>
+      p {
+        width: 150px;
+        height: 150px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="inner-fade">
+      <p style="background-color: red">One</p>
+      <p style="background-color: yellow">two</p>
+      <p style="background-color: blue">three</p>
+      <p style="background-color: green">four</p>
+      <p style="background-color: pink">five</p>
+    </div>
+  </body>
+</html>

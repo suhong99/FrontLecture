@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="../day0517/jquery-3.7.0.min.js"></script>
+    <script src="jquery-ui.css"></script>
+    <script src="jquery-ui.js"></script>
+
+    <!-- <scrip src="jquery-ui-1.10.3.custom.min.js"></scrip> -->
+    <script>
+      $(document).ready(function () {
+        $("button").click(function () {
+          var easing = $("select").val();
+
+          $("div").animate(
+            {
+              left: "400px",
+            },
+            2000,
+            easing
+          );
+        });
+      });
+    </script>
+    <style>
+      div {
+        background-color: darkorange;
+        width: 100px;
+        height: 100px;
+        position: relative;
+      }
+    </style>
+  </head>
+  <body>
+    <select>
+      <option>linear</option>
+      <option>swing</option>
+      <option>easeInQuad</option>
+      <option>easeOutQuad</option>
+    </select>
+    <button>클릭</button>
+    <div></div>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="../day0517/jquery-3.7.0.min.js"></script>
+    <script src="jquery-ui-1.10.3.custom.min.css"></script>
+    <scrip src="jquery-ui-1.10.3.custom.min.js"></scrip>
+    <script>
+      $(document).ready(function () {
+        $("div").hover(
+          function () {
+            $(this).addClass("reverse", 1000);
+          },
+          function () {
+            $(this).removeClass("reverse", 1000);
+          }
+        );
+      });
+    </script>
+    <style>
+      /* div {
+        color: white;
+        background-color: black;
+      } */
+
+      .reverse {
+        color: white;
+        background-color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h1>head line</h1>
+      <p>kikikiki</p>
+    </div>
+
+    <div>
+      <h1>head line</h1>
+      <p>kikikiki</p>
+    </div>
+  </body>
+</html>

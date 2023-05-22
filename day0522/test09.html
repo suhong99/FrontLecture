@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="../day0517/jquery-3.7.0.min.js"></script>
+    <script src="jquery-ui.css"></script>
+    <script src="jquery-ui.js"></script>
+    <script>
+      $(document).ready(function () {
+        $(".inner_box").each(function (index) {
+          $(this)
+            .css("left", index * 90)
+            .css("top", index * 90);
+        });
+      });
+    </script>
+    <style>
+      * {
+        margin: 0px;
+        padding: 0px;
+      }
+      #canvas {
+        background: gray;
+        width: 600px;
+        height: 400px;
+        position: relative;
+        overflow: hidden;
+      }
+      .inner_box {
+        background: orange;
+        width: 100px;
+        height: 100px;
+        position: absolute;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Top</h1>
+    <div id="canvas">
+      <div class="inner_box"></div>
+      <div class="inner_box"></div>
+      <div class="inner_box"></div>
+      <div class="inner_box"></div>
+      <div class="inner_box"></div>
+    </div>
+    <h1>Bottom</h1>
+  </body>
+</html>

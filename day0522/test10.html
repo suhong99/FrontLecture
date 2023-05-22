@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="../day0517/jquery-3.7.0.min.js"></script>
+    <!-- <script src="jquery-ui.css"></script> -->
+    <script src="jquery-ui.js"></script>
+    <script>
+      var interval;
+      var currentIndex;
+      var isStop = false;
+      function moveSlider(index) {
+        //tㅡㅅㄹ라이더를 이동함
+        var leftMoveLength = index * -600;
+        $(".slider_panel").animate({ left: leftMoveLength }, 1000);
+
+        // //모든 글자를 숨긴다.
+        // $(".slider_text").css("left", -300);
+        // //해당하는 인덱스의 글자를 화면에 노출시킨다.
+        // $(".slider_text[data-index='" + index + "']").css("left", 0);
+
+        //통합
+        $(".slider_text[data-index='" + index + "']").animate(
+          { left: "0px" },
+          1000
+        );
+        $(".slider_text[data-index!='" + index + "']").animate(
+          { left: "-300px" },
+          1000
+        );
+
+        interval = setInterval(function () {
+          index++;
+          currentIndex = index;
+          $(".slider_text[data-index='" + (index % 5) + "']").animate(
+            { left: "0px" },
+            1000
+          );
+          $(".slider_text[data-index!='" + (index % 5) + "']").animate(
+            { left: "-300px" },
+            1000
+          );
+          $(".slider_panel").animate({ left: (index % 5) * -600 }, 1000);
+
+          $(".control_button").removeClass("active");
+          $(".control_button")
+            .eq(index % 5)
+            .addClass("active");
+        }, 3000);
+      }
+
+      $(document).ready(function () {
+        var randomNumber = parseInt(
+          Math.random() * $(".control_button").length
+        );
+        // 초기 슬라이더 위치 지정
+        moveSlider(randomNumber);
+
+        $(".toggle_button").click(function () {
+          if (!isStop) {
+            clearInterval(interval);
+            isStop = true;
+            $(".toggle_button").text("재시작");
+          } else {
+            isStop = false;
+            $(".toggle_button").text("중지");
+            moveSlider(currentIndex);
+          }
+        });
+
+        //초기 텍스트 위치 지정 및 data-index할당
+        $(".slider_text")
+          .css("left", -300)
+          .each(function (index) {
+            $(this).attr("data-index", index);
+          });
+        // 컨트롤 버튼의 클릭 리스터 지정 및 data-index 할당
+        $(".control_button")
+          .each(function (index) {
+            $(this).attr("data-index", index);
+          })
+          .click(function () {
+            clearInterval(interval);
+            moveSlider($(this).attr("data-index"));
+            isStop = false;
+            $(".toggle_button").text("중지");
+            $(".control_button").removeClass("active");
+            $(this).addClass("active");
+          });
+      });
+    </script>
+    <style>
+      .animation_canvas {
+        width: 600px;
+        height: 400px;
+        position: relative;
+        overflow: hidden;
+      }
+      .slider_panel {
+        width: 3000px;
+        position: relative;
+      }
+
+      .slider_image {
+        width: 600px;
+        height: 400px;
+        float: left;
+      }
+
+      .slider_text_panel {
+        position: absolute;
+        top: 200px;
+        left: 50px;
+      }
+      .slider_text {
+        position: absolute;
+        width: 250px;
+        height: 150px;
+        color: white;
+      }
+
+      .control_panel {
+        position: absolute;
+        top: 380px;
+        left: 270px;
+        height: 13px;
+        overflow: hidden;
+      }
+      .control_button {
+        width: 12px;
+        height: 46px;
+        position: relative;
+        float: left;
+        cursor: pointer;
+        background: url("./img/point_button.png");
+      }
+
+      .control_button:hover {
+        top: -16px;
+      }
+
+      .control_button.active {
+        top: -31px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>TOP</h1>
+    <div class="animation_canvas">
+      <div class="slider_panel">
+        <img class="slider_image" src="./img/Desert.jpg" />
+        <img class="slider_image" src="./img/Hydrangeas.jpg" />
+        <img class="slider_image" src="./img/Jellyfish.jpg" />
+        <img class="slider_image" src="./img/Koala.jpg" />
+        <img class="slider_image" src="./img/Lighthouse.jpg" />
+      </div>
+      <div class="slider_text_panel">
+        <div class="slider_text">
+          <h1>첫번째</h1>
+          <p>첫번째 이미지</p>
+        </div>
+        <div class="slider_text">
+          <h1>2번째</h1>
+          <p>2번째 이미지</p>
+        </div>
+        <div class="slider_text">
+          <h1>3번째</h1>
+          <p>3번째 이미지</p>
+        </div>
+        <div class="slider_text">
+          <h1>4번째</h1>
+          <p>4번째 이미지</p>
+        </div>
+        <div class="slider_text">
+          <h1>5번째</h1>
+          <p>5번째 이미지</p>
+        </div>
+      </div>
+      <div class="control_panel">
+        <div class="control_button"></div>
+        <div class="control_button"></div>
+        <div class="control_button"></div>
+        <div class="control_button"></div>
+        <div class="control_button"></div>
+      </div>
+    </div>
+    <button class="toggle_button">중지</button>
+
+    <h1>BOTTOM</h1>
+  </body>
+</html>

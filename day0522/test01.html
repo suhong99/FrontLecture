@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="../day0517/jquery-3.7.0.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("button:first").click(function () {
+          //   $(".page").toggle("fast");
+          //   $(".page").toggle("slow");
+          //   $(".page").slideDown("slow");
+          $(".page").fadeIn("slow", "swing", function () {
+            console.log("callback function call..");
+          });
+        });
+        $("button:last").click(function () {
+          //   $(".page").hide("fast");
+          //   $(".page").slideUp("slow");
+          $(".page").fadeOut("slow");
+        });
+      });
+    </script>
+    <style>
+      p {
+        background-color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <p>Message...</p>
+    </div>
+    <button>클릭 show</button>
+    <button>클릭 hide</button>
+  </body>
+</html>
