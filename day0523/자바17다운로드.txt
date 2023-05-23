@@ -1,0 +1,15 @@
+자바17다운로드
+
+https://download.oracle.com/java/17/archive/jdk-17.0.7_windows-x64_bin.exe (sha256 )
+
+환경변수 편집 -> 시스템 속성 -> 환경 변수
+
+
+JAVA_HOME 을 환경변수에 설정.
+
+이후 path에 %JAVA_HOME%\bin
+
+이클립스 다운
+https://www.eclipse.org/downloads/packages/
+
+2021년도 12월 버전 사용 ..  (4.22)
