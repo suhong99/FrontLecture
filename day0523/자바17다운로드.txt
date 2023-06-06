@@ -13,3 +13,14 @@ JAVA_HOME 을 환경변수에 설정.
 https://www.eclipse.org/downloads/packages/
 
 2021년도 12월 버전 사용 ..  (4.22)
+
+이클립스 c 드라이브에 옮기고 
+java 폴더 만들기
+
+open perspective에서 자바
+
+윈도우에서 preference하고
+
+왼쪽에 spell 이랑 workspace에서 utf-8하기 (한글 안 꺠짐)
+
+new프로젝트만들기
